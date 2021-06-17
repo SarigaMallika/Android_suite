@@ -40,12 +40,12 @@ public class Home_page_positive_scenario extends Generic_functions {
 	@When("User enters valid phonenumber and password and User click on login")
 	public static void home_positive_tc_002() throws InterruptedException, IOException {
 		try {
-						click("login_phone_number");
-						page_wait(20);
-						driver.findElement(By.xpath(OR_reader("Object Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",0));
-						driver.findElement(By.xpath(OR_reader("Object Locator", "login_password"))).sendKeys(td_reader("login_password",0));
+// 						click("login_phone_number");
+// 						page_wait(20);
+// 						driver.findElement(By.xpath(OR_reader("Object Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",0));
+// 						driver.findElement(By.xpath(OR_reader("Object Locator", "login_password"))).sendKeys(td_reader("login_password",0));
 						page_wait(10);
-						click("login");
+// 						click("login");
 			page_wait(30);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "login_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
