@@ -28,12 +28,9 @@ public class Home_page_positive_scenario extends Generic_functions {
 	public static void home_positive_tc_001() throws IOException {
 		try {
 			page_wait(10);
-			System.out.println("login title");
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "landing_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("login click");
 			click("welcome_login");
-			System.out.println("1");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_001");
@@ -47,14 +44,12 @@ public class Home_page_positive_scenario extends Generic_functions {
 						page_wait(20);
 						driver.findElement(By.xpath(OR_reader("Object Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",0));
 						driver.findElement(By.xpath(OR_reader("Object Locator", "login_password"))).sendKeys(td_reader("login_password",0));
-						System.out.println("login phone and pass");
 						page_wait(10);
 						click("login");
 			page_wait(30);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "login_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("2");
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_002");
 		}
@@ -80,7 +75,6 @@ public class Home_page_positive_scenario extends Generic_functions {
 			value1=driver.findElement(By.xpath(OR_reader("Object Locator", "home_dashboard_back_arrow"))).isDisplayed();
 			Assert.assertEquals(true,value1);
 			click("home_dashboard_back_arrow");
-			System.out.println("3");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_003");
@@ -94,7 +88,6 @@ public class Home_page_positive_scenario extends Generic_functions {
 			page_wait(50);
 			value1=driver.findElement(By.xpath(OR_reader("Object Locator", "so_title"))).isDisplayed();
 			Assert.assertEquals(true,value1);
-			System.out.println("4");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_004");
@@ -111,7 +104,6 @@ public class Home_page_positive_scenario extends Generic_functions {
 			page_wait(50);
 			value1=driver.findElement(By.xpath(OR_reader("Object Locator", "refer_frnd_refer_code"))).isDisplayed();
 			Assert.assertEquals(true,value1);
-			System.out.println("5");
 		}catch(Exception e) {
 			e.printStackTrace();
 			takeScreenShot("home_positive_tc_005");
