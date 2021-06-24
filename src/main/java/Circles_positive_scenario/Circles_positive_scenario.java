@@ -22,7 +22,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(10);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "landing_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("land page assert");
 			click("welcome_login");
 			page_wait(10);
 			click("login_phone_number");
@@ -34,7 +33,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(30);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "login_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("log page assert");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -48,7 +46,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(12);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "circles_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("circle page title assert");
 		} catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_positive_tc_001");
@@ -62,10 +59,8 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(12);
 			click("circles_add_partner_button");
 			page_wait(12);
-			System.out.println("2.1");
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "circles_add_patner_title"))).isDisplayed();
 			Assert.assertEquals(true,value);	
-			System.out.println("add partner title assert");
 		} catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_positive_tc_002");
@@ -101,7 +96,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(12);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "circles_forgot_username_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("forgot user title assert");
 			browser_back();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -117,7 +111,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			click("circles_forgot_password_link");
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "circles_forgot_password_title"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("forgot pass title assert");
 			browser_back();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -145,8 +138,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(20);
 			str =driver.findElement(By.xpath(OR_reader("Object Locator", "circles_mymedicare_password"))).getText();
 			Assert.assertEquals(str,"PW27961!");
-			System.out.println("pass eye title assert");
-			System.out.println("7");
 		} catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_positive_tc_007");
@@ -167,7 +158,7 @@ public class Circles_positive_scenario extends Generic_functions  {
 		} 
 	}
 
-	/*TC 012 - Validate that the user can able to view 'My Medicare’ icon in the Circles page and also it should be clickable */
+	/*TC 012 - Validate that the user can able to view 'My Medicareâ€™ icon in the Circles page and also it should be clickable */
 	@Given("My Medicare logo should be present in the Circles page  and it should be clickable")
 	public void circle_positive_tc_012() throws IOException  {
 		try {
@@ -177,7 +168,6 @@ public class Circles_positive_scenario extends Generic_functions  {
 			page_wait(40);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "circles_mymedicare_img_icon"))).isDisplayed();
 			Assert.assertEquals(true,value);
-			System.out.println("mymed img assert");
 			close();
 		} catch (Exception e) {
 			e.printStackTrace();
