@@ -10,9 +10,9 @@ public class Circles_negative_scenario extends Generic_functions{
 	public static boolean value;
 	public static String str;
 
-	/*Browser launch*/
+	/*App launch*/
 	@Given("App is open")
-	public void browser_launching() throws Exception {
+	public void app_launching() throws Exception {
 		try {
 			app_launch();
 			page_wait(10);
