@@ -31,7 +31,7 @@ public class Circles_negative_scenario extends Generic_functions{
 			Assert.assertEquals(true,value);
 		} catch (Exception e) {
 			e.printStackTrace();
-			takeScreenShot("browser launching");
+			takeScreenShot("App launching");
 		}
 	}
 
