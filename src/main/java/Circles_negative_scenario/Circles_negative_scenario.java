@@ -61,7 +61,7 @@ public class Circles_negative_scenario extends Generic_functions{
 	@Given("User will get a validation message when leaving Username and password")
 	public void circle_positive_tc_002() throws Exception {
 		try {
-			browser_back();
+			page_back();
 			//click("circles_add_patner_back_arrow");
 			page_wait(30);
 			click("circles_add_partner_button");
