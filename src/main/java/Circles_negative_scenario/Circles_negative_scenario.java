@@ -21,7 +21,7 @@ public class Circles_negative_scenario extends Generic_functions{
 			click("welcome_login");
 			page_wait(10);
 			click("login_phone_number");
-			page_wait(20);
+			page_wait(30);
 			driver.findElement(By.xpath(OR_reader("Object Locator", "login_phone_number"))).sendKeys(td_reader("login_phone_number",5));
 			driver.findElement(By.xpath(OR_reader("Object Locator", "login_password"))).sendKeys(td_reader("login_password",3));
 			page_wait(10);
@@ -31,14 +31,15 @@ public class Circles_negative_scenario extends Generic_functions{
 			Assert.assertEquals(true,value);
 		} catch (Exception e) {
 			e.printStackTrace();
-			takeScreenShot("App launching");
+			takeScreenShot("browser launching");
 		}
 	}
 
 	/*TC 001 - Validate that Proceed button is disabled when they do not select a provider from the drop down*/
 	@When("Click drop down list and do not make a selection and proceed then user should not be able to proceed to next page")
 	public void circle_positive_tc_001() throws Exception {
-		try {		
+		try {	
+			page_wait(30);
 			click("home_circles");
 			page_wait(12);
 			value = driver.findElement(By.xpath(OR_reader("Object Locator", "circles_title"))).isDisplayed();
@@ -61,7 +62,7 @@ public class Circles_negative_scenario extends Generic_functions{
 	@Given("User will get a validation message when leaving Username and password")
 	public void circle_positive_tc_002() throws Exception {
 		try {
-			page_back();
+			browser_back();
 			//click("circles_add_patner_back_arrow");
 			page_wait(30);
 			click("circles_add_partner_button");
@@ -69,13 +70,14 @@ public class Circles_negative_scenario extends Generic_functions{
 			click("circles_add_partner_dropdown");
 			click("circles_add_partner_dropdown");
 			click("circles_mymedicare_option");
-			click("circles_mymedicare_option");
+			//click("circles_mymedicare_option");
 			page_wait(20);
 			click("circles_proceed_button_after_selection");
-			click("circles_proceed_button_after_selection");
+			//click("circles_proceed_button_after_selection");
+			Thread.sleep(5000);
 			Thread.sleep(5000);
 			click("circles_mymedicare_login_button");
-			click("circles_mymedicare_login_button");
+			//click("circles_mymedicare_login_button");
 			page_wait(40);
 			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_username_valid_msg"))).getText();
 			Assert.assertEquals(str,td_reader("circles_mymedicare_username_valid_msg"));
@@ -94,13 +96,13 @@ public class Circles_negative_scenario extends Generic_functions{
 		try {
 			click("circles_mymedicare_username");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_username"))).sendKeys(td_reader("circles_mymedicare_username",1));
+			System.out.println("3.2");
 			click("circles_mymedicare_password");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_password"))).sendKeys(td_reader("circles_mymedicare_password",1));
 			click("circles_mymedicare_login_button");
-			field_clear("circles_mymedicare_username");
-			field_clear("circles_mymedicare_username");
-			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_error_msg"))).getText();
-			Assert.assertEquals(str,td_reader("circles_mymedicare_error_msg"));
+			//str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_incorrect_msg"))).getText();
+			//Assert.assertEquals(str,td_reader("circles_mymedicare_incorrect_msg"));
+			System.out.println("3.5");
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_negative_tc_003");
@@ -111,13 +113,15 @@ public class Circles_negative_scenario extends Generic_functions{
 	@Given("User will get validation message when Username field is blank")
 	public void circle_positive_tc_004() throws Exception {
 		try {
+			click("circles_mymedicare_username");
+			field_clear("circles_mymedicare_username");
+			click("circles_mymedicare_password");
+			field_clear("circles_mymedicare_password");
 			click("circles_mymedicare_password");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_password"))).sendKeys(td_reader("circles_mymedicare_password",0));
 			click("circles_mymedicare_login_button");
-			field_clear("circles_mymedicare_username");
-			field_clear("circles_mymedicare_username");
-			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_error_msg"))).getText();
-			Assert.assertEquals(str,td_reader("circles_mymedicare_error_msg"));
+			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_username_valid_msg"))).getText();
+			Assert.assertEquals(str,td_reader("circles_mymedicare_username_valid_msg"));
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_negative_tc_004");
@@ -128,12 +132,16 @@ public class Circles_negative_scenario extends Generic_functions{
 	@Given("User will get validation message when Password field is blank")
 	public void circle_positive_tc_005() throws Exception {
 		try {
+			click("circles_mymedicare_username");
+			field_clear("circles_mymedicare_username");
+			click("circles_mymedicare_password");
+			field_clear("circles_mymedicare_password");
+			click("circles_mymedicare_password");
+			field_clear("circles_mymedicare_password");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_username"))).sendKeys(td_reader("circles_mymedicare_username",0));
 			click("circles_mymedicare_login_button");
-			field_clear("circles_mymedicare_username");
-			field_clear("circles_mymedicare_username");
-			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_error_msg"))).getText();
-			Assert.assertEquals(str,td_reader("circles_mymedicare_error_msg"));
+			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_password_valid_msg"))).getText();
+			Assert.assertEquals(str,td_reader("circles_mymedicare_password_valid_msg"));
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_negative_tc_005");
@@ -145,14 +153,16 @@ public class Circles_negative_scenario extends Generic_functions{
 	public void circle_positive_tc_006() throws Exception {
 		try {
 			click("circles_mymedicare_username");
+			field_clear("circles_mymedicare_username");
+			click("circles_mymedicare_password");
+			field_clear("circles_mymedicare_password");
+			click("circles_mymedicare_username");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_username"))).sendKeys(td_reader("circles_mymedicare_username",0));
 			click("circles_mymedicare_password");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_password"))).sendKeys(td_reader("circles_mymedicare_password",1));
 			click("circles_mymedicare_login_button");
-			field_clear("circles_mymedicare_username");
-			field_clear("circles_mymedicare_username");
-			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_error_msg"))).getText();
-			Assert.assertEquals(str,td_reader("circles_mymedicare_error_msg"));
+			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_incorrect_msg"))).getText();
+			Assert.assertEquals(str,td_reader("circles_mymedicare_incorrect_msg"));
 		}catch (Exception e) {
 			e.printStackTrace();
 			takeScreenShot("circle_negative_tc_006");
@@ -164,14 +174,16 @@ public class Circles_negative_scenario extends Generic_functions{
 	public void circle_positive_tc_007() throws Exception {
 		try {
 			click("circles_mymedicare_username");
+			field_clear("circles_mymedicare_username");
+			click("circles_mymedicare_password");
+			field_clear("circles_mymedicare_password");
+			click("circles_mymedicare_username");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_username"))).sendKeys(td_reader("circles_mymedicare_username",0));
 			click("circles_mymedicare_password");
 			driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_password"))).sendKeys(td_reader("circles_mymedicare_password",1));
 			click("circles_mymedicare_login_button");
-			field_clear("circles_mymedicare_username");
-			field_clear("circles_mymedicare_username");
-			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_error_msg"))).getText();
-			Assert.assertEquals(str,td_reader("circles_mymedicare_error_msg"));
+			str= driver.findElement(By.xpath(OR_reader("Object Locator","circles_mymedicare_incorrect_msg"))).getText();
+			Assert.assertEquals(str,td_reader("circles_mymedicare_incorrect_msg"));
 			close();
 		}catch (Exception e) {
 			e.printStackTrace();
